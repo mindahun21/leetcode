@@ -10,9 +10,4 @@ class Solution:
                 s= s-nums[l]
                 l+=1
             
-        if res == float('inf'):
-            return 0
-        
-        return res
-            
-
+        return res if res != float('inf') else 0
