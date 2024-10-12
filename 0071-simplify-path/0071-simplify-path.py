@@ -15,7 +15,4 @@ class Solution:
             
             stack.append(s)
         
-        for s in stack:
-            res += "/" + s
-        
-        return res if len(res)>0 else "/"
+        return "/" + "/".join(stack)
