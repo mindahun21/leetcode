@@ -2,7 +2,7 @@
 # This is the interface that allows for creating nested lists.
 # You should not implement it, or speculate about its implementation
 # """
-#class NestedInteger:
+# class NestedInteger:
 #    def isInteger(self) -> bool:
 #        """
 #        @return True if this NestedInteger holds a single integer, rather than a nested list.
@@ -20,10 +20,12 @@
 #        Return None if this NestedInteger holds a single integer
 #        """
 
+
 class NestedIterator:
     def __init__(self, nestedList: [NestedInteger]):
 
         self.nestedList = deque()
+
         def navigate(li):
             for item in li:
                 if item.isInteger():
@@ -32,15 +34,13 @@ class NestedIterator:
                     navigate(item.getList())
 
         navigate(nestedList)
-    
+
     def next(self) -> int:
         return self.nestedList.pop()
-    
+
     def hasNext(self) -> bool:
-        if len(self.nestedList) > 0:
-            return True
-        else:
-            return False
+        return len(self.nestedList) > 0
+            
 
 # Your NestedIterator object will be instantiated and called as such:
 # i, v = NestedIterator(nestedList), []
